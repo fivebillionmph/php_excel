@@ -3255,6 +3255,14 @@ EXCEL_METHOD(Sheet, lastRow)
 }
 /* }}} */
 
+/* {{{ proto int ExcelSheet::lastFilledRow()
+	Returns the zero-based index of the column after the last filled row in the sheet that contains a used cell. */
+EXCEL_METHOD(Sheet, lastFilledRow)
+{
+	PHP_EXCEL_INFO(LastFilledRow, IS_LONG)
+}
+/* }}} */
+
 /* {{{ proto int ExcelSheet::firstCol()
 	Returns the first column in the sheet that contains a used cell. */
 EXCEL_METHOD(Sheet, firstCol)
@@ -3268,6 +3276,14 @@ EXCEL_METHOD(Sheet, firstCol)
 EXCEL_METHOD(Sheet, lastCol)
 {
 	PHP_EXCEL_INFO(LastCol, IS_LONG)
+}
+/* }}} */
+
+/* {{{ proto int ExcelSheet::lastFilledCol()
+	Returns the zero-based index of the column after the last filled column in the sheet that contains a used cell. */
+EXCEL_METHOD(Sheet, lastFilledCol)
+{
+	PHP_EXCEL_INFO(LastFilledCol, IS_LONG)
 }
 /* }}} */
 
@@ -6137,10 +6153,16 @@ ZEND_END_ARG_INFO()
 ZEND_BEGIN_ARG_INFO_EX(arginfo_Sheet_lastRow, 0, 0, 0)
 ZEND_END_ARG_INFO()
 
+ZEND_BEGIN_ARG_INFO_EX(arginfo_Sheet_lastFilledRow, 0, 0, 0)
+ZEND_END_ARG_INFO()
+
 ZEND_BEGIN_ARG_INFO_EX(arginfo_Sheet_firstCol, 0, 0, 0)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_Sheet_lastCol, 0, 0, 0)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_Sheet_lastFilledCol, 0, 0, 0)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_Sheet_displayGridlines, 0, 0, 0)
@@ -6736,8 +6758,10 @@ zend_function_entry excel_funcs_sheet[] = {
 	EXCEL_ME(Sheet, copy, arginfo_Sheet_copy, 0)
 	EXCEL_ME(Sheet, firstRow, arginfo_Sheet_firstRow, 0)
 	EXCEL_ME(Sheet, lastRow, arginfo_Sheet_lastRow, 0)
+	EXCEL_ME(Sheet, lastFilledRow, arginfo_Sheet_lastFilledRow, 0)
 	EXCEL_ME(Sheet, firstCol, arginfo_Sheet_firstCol, 0)
 	EXCEL_ME(Sheet, lastCol, arginfo_Sheet_lastCol, 0)
+	EXCEL_ME(Sheet, lastFilledCol, arginfo_Sheet_lastFilledCol, 0)
 	EXCEL_ME(Sheet, displayGridlines, arginfo_Sheet_displayGridlines, 0)
 	EXCEL_ME(Sheet, printGridlines, arginfo_Sheet_printGridlines, 0)
 	EXCEL_ME(Sheet, setDisplayGridlines, arginfo_Sheet_setDisplayGridlines, 0)
